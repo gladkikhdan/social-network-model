@@ -1,0 +1,13 @@
+.nav {
+  margin-right: 5px;
+  display: flex;
+  flex-direction: column;
+  min-width: 20%;
+  flex: auto;
+
+  background: cadetblue;
+}
+
+.item {
+  color: white;
+}

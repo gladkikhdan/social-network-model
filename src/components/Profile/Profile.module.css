@@ -1,0 +1,14 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  flex: 5 1 auto;
+
+  width: 100%;
+  max-width: calc(1200px - 20%);
+  background: yellowgreen;
+}
+
+.img img{
+  width: 100%;
+  max-height: 200px;
+}
