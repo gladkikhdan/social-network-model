@@ -1,5 +1,6 @@
 .nav {
   margin-right: 5px;
+  padding: 15px 20px;
   display: flex;
   flex-direction: column;
   min-width: 200px;
@@ -11,4 +12,12 @@
 
 .item {
   color: white;
+}
+
+.item a {
+  color: white;
+}
+
+.item a.active {
+  color: gold;
 }
