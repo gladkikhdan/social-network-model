@@ -1,0 +1,21 @@
+.wrapper {
+    display: flex;
+    padding: 15px 20px;
+}
+
+.wrapper a {
+    color: white;
+}
+
+.items {
+    min-width: 20%;    
+    margin: 0;
+}
+
+.messages {
+ min-width: 70%;
+}
+
+.messages .message {
+    padding: 10px;
+}

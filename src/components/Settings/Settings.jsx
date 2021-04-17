@@ -3,7 +3,7 @@ import css from './Settings.module.css';
 
 const Settings = () => {
     return (
-        <div>
+        <div className={css.wrapper}>
             Settings
         </div>
     )

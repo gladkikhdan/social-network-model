@@ -3,7 +3,7 @@ import css from './Music.module.css';
 
 const Music = () => {
     return (
-        <div>
+        <div className={css.wrapper}>
             Music
         </div>
     )

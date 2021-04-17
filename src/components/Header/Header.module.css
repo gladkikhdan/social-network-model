@@ -1,13 +1,15 @@
 .header {
+  display: flex;
+  align-items: center;
   max-width: 100%;
-  min-height: 110px;
+  min-height: 100px;
   background-color: cornflowerblue;
 }
 
 .header img {
   width: auto;
   height: auto;
-  min-width: 100px;
-  max-width: 150px;
-  max-height: 100px;
+  min-width: 50px;
+  max-width: 80px;
+  max-height: 80px;
 }
