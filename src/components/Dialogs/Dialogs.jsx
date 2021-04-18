@@ -3,7 +3,7 @@ import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
 import css from './Dialogs.module.css';
 
-const Dialogs = (props) => {  
+const Dialogs = (props) => {
     let dialogsItems = props.state.dialogsData.map(dialog => <DialogItem name={dialog.name} id={dialog.id} />);
     let messages = props.state.messagesData.map(msg => <Message msg={msg.text} />);
 
@@ -14,6 +14,10 @@ const Dialogs = (props) => {
             </div>
             <div className={css.messages}>
                 {messages}
+                <textarea cols="30" rows="4"></textarea>
+                <div>
+                    <button>Send message</button>
+                </div>
             </div>
         </div>
     )

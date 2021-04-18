@@ -7,10 +7,10 @@ const Profile = (props) => {
     let postData = props.state.postData;
 
     return (
-    <div className={css.wrapper}>
-        <ProfileInfo/>        
-        <MyPosts posts={postData}/>  
-    </div>    
+        <div className={css.wrapper}>
+            <ProfileInfo />
+            <MyPosts posts={postData} addPost={props.addPost}/>
+        </div>
     );
 }
 

@@ -8,8 +8,9 @@
 }
 
 .items {
-    min-width: 20%;    
+    min-width: 15%;    
     margin: 0;
+    border-right: 1px solid seagreen;
 }
 
 .item {
@@ -17,7 +18,8 @@
 }
 
 .messages {
- min-width: 70%;
+    padding: 0 15px;
+    min-width: 70%;
 }
 
 .messages .message {

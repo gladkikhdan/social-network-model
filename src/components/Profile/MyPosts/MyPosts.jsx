@@ -7,7 +7,7 @@ const MyPosts = (props) => {
 
     let newPostElement = React.createRef();
     function addPost() {
-        alert(newPostElement.current.value);
+        props.addPost(newPostElement.current.value);
     }
 
     return (
