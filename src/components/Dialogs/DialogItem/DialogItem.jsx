@@ -1,11 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import css from './DialogItem.module.css'
+import css from '../Dialogs.module.css';
 
 const DialogItem = (props) => {
+    let path = '/dialogs/' + props.id;
+
     return (
         <div className={css.item}>
-            <NavLink to={'/dialogs/' + props.id}>{props.name}</NavLink>
+            <NavLink to={path}>{props.name}</NavLink>
         </div>
     );
 }

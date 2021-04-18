@@ -2,8 +2,9 @@
   display: flex;
   align-items: center;
   max-width: 100%;
-  min-height: 100px;
+  min-height: 80px;
   background-color: cornflowerblue;
+  border-radius: 0 0 8px 8px;
 }
 
 .header img {

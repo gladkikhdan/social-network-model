@@ -12,6 +12,10 @@
     margin: 0;
 }
 
+.item {
+    padding: 2px 5px;
+}
+
 .messages {
  min-width: 70%;
 }

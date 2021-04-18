@@ -2,12 +2,8 @@ import React from 'react';
 import css from './MyPosts.module.css';
 import Post from './Post/Post';
 
-const MyPosts = () => {
-
-    let postData = [
-        {id: 1, post: "Hey, how are you?", likesCount: 15},
-        {id: 2, post: "It's my first post on this website!", likesCount: 22}
-    ];
+const MyPosts = (props) => {
+    let posts = props.posts.map( element => <Post text={element.post} likes={element.likesCount} /> );
 
     return (
         <div className={css.wrap}>
@@ -21,9 +17,8 @@ const MyPosts = () => {
                 </div>
             </div>
 
-            <div className={css.posts}>
-                <Post message={postData[0].post} likes={postData[0].likesCount} />
-                <Post message={postData[1].post} likes={postData[1].likesCount} />
+            <div className={css.posts}>                
+                {posts}
             </div>
         </div>
     );
