@@ -5,11 +5,13 @@ import ProfileInfo from './ProfileInfo/ProfileInfo';
 
 const Profile = (props) => {
     let postData = props.state.postData;
+    let newPostText = props.state.newPostText;
+    
 
     return (
         <div className={css.wrapper}>
             <ProfileInfo />
-            <MyPosts posts={postData} addPost={props.addPost}/>
+            <MyPosts posts={postData} newPostText={newPostText} addPost={props.addPost} updateNewPostText={props.updateNewPostText}/>
         </div>
     );
 }

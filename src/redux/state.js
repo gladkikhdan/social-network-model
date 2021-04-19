@@ -7,6 +7,7 @@ let state = {
       { id: 2, post: "It's my first post on this website!", likesCount: 22 },
       { id: 3, post: "Hey hey hey, some REACT.JS fo u", likesCount: 11 },
     ],
+    newPostText: '', // empty input
   },
   dialogsPage: {
     messagesData: [
@@ -15,6 +16,7 @@ let state = {
       { id: 3, text: "I'm hungry ;(" },
       { id: 4, text: "miss you... fr fr" }
     ],
+    newMessageText: '', // empty input
     dialogsData: [
       { id: 1, name: "Michel" },
       { id: 2, name: "Simon" },
@@ -33,6 +35,26 @@ let addPost = (postText) => {
     likesCount: 2,
   };
   state.profilePage.postData.unshift(newPost);
+  state.profilePage.newPostText = '';
   rerenderEntireTree(state);
 }
-export {state, addPost};
+
+let updateNewPostText = (text) => {
+  state.profilePage.newPostText = text;
+  rerenderEntireTree(state);
+}
+
+let sendMessage = (msgText) => {
+  let newMessage = { id: 5, text: msgText };
+  state.dialogsPage.messagesData.push(newMessage);
+  state.dialogsPage.newMessageText = '';
+  rerenderEntireTree(state);
+}
+
+let updateMessageText = (text) => {
+  state.dialogsPage.newMessageText = text;
+  rerenderEntireTree(state);
+}
+
+
+export {state, addPost, updateNewPostText, sendMessage, updateMessageText};
