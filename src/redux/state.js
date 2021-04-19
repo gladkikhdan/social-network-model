@@ -32,7 +32,7 @@ let addPost = (postText) => {
     post: postText,
     likesCount: 2,
   };
-  state.profilePage.postData.push(newPost);
+  state.profilePage.postData.unshift(newPost);
   rerenderEntireTree(state);
 }
 export {state, addPost};
