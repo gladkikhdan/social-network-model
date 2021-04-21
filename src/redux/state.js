@@ -1,3 +1,6 @@
+const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+
 export let store = {
   _state: {
     profilePage: {
@@ -43,7 +46,7 @@ export let store = {
   // all actions
   dispatch(action) {
     switch (action.type) {
-      case 'ADD-POST':
+      case ADD_POST:
         let newPost = {
           id: 666,
           post: this._state.profilePage.newPostText,
@@ -53,7 +56,7 @@ export let store = {
         this._state.profilePage.newPostText = '';
         this._subscriber(this._state);
         break;
-      case 'UPDATE-NEW-POST-TEXT':
+      case UPDATE_NEW_POST_TEXT:
         this._state.profilePage.newPostText = action.text;
         this._subscriber(this._state);
         break;
@@ -72,3 +75,12 @@ export let store = {
     };
   }
 }
+
+export const addPostActionCreator = () => ({
+  type: ADD_POST,
+})
+
+export const textChangeActionCreator = (text) => ({
+  type: UPDATE_NEW_POST_TEXT,
+  text: text,
+})
