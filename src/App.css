@@ -17,11 +17,12 @@
 }
 
 .main-content {
+  padding: 10px 15px;
   display: flex;
   flex-direction: column;
   flex: 5 1 auto;
 
-  min-width: 80%;
+  min-width: calc(80% - 30px);
   max-width: 1100px;
   background-color: yellowgreen;
 }

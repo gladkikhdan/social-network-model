@@ -11,12 +11,17 @@ const Dialogs = (props) => {
 
     function createMessage() {
         let msgText = msgTextElement.current.value;
-        props.sendMessage(msgText);
+        props.dispatch({
+            type: 'SEND-MESSAGE',
+        });
     }
 
     function onMessageTextChange() {
         let newMessageText = msgTextElement.current.value;
-        props.updateMessageText(newMessageText);
+        props.dispatch({
+            type: 'UPDATE-MESSAGE-TEXT',
+            text: newMessageText,
+        });
     }
 
     return (
@@ -26,10 +31,10 @@ const Dialogs = (props) => {
             </div>
             <div className={css.messages}>
                 {messages}
-                <textarea ref={msgTextElement} 
-                onChange={onMessageTextChange} 
-                value={props.state.newMessageText} 
-                cols="30" rows="4"></textarea>
+                <textarea ref={msgTextElement}
+                    onChange={onMessageTextChange}
+                    value={props.state.newMessageText}
+                    cols="30" rows="4"></textarea>
                 <div>
                     <button type='button' onClick={createMessage}>Send message</button>
                 </div>
