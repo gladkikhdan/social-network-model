@@ -1,5 +1,7 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const SEND_MESSAGE = 'SEND-MESSAGE';
+const UPDATE_MESSAGE_TEXT = 'UPDATE-MESSAGE-TEXT';
 
 export let store = {
   _state: {
@@ -56,31 +58,44 @@ export let store = {
         this._state.profilePage.newPostText = '';
         this._subscriber(this._state);
         break;
+
       case UPDATE_NEW_POST_TEXT:
         this._state.profilePage.newPostText = action.text;
         this._subscriber(this._state);
         break;
-      case 'SEND-MESSAGE':
+
+      case SEND_MESSAGE:
         let newMessage = { id: 5, text: this._state.dialogsPage.newMessageText };
         this._state.dialogsPage.messagesData.push(newMessage);
         this._state.dialogsPage.newMessageText = '';
         this._subscriber(this._state);
         break;
-      case 'UPDATE-MESSAGE-TEXT':
+
+      case UPDATE_MESSAGE_TEXT:
         this._state.dialogsPage.newMessageText = action.text;
         this._subscriber(this._state);
         break;
+
       default:
         console.log('dispatch error: command not found');
     };
   }
 }
 
-export const addPostActionCreator = () => ({
+export const addPostCreator = () => ({
   type: ADD_POST,
 })
 
-export const textChangeActionCreator = (text) => ({
+export const textChangeCreator = (text) => ({
   type: UPDATE_NEW_POST_TEXT,
   text: text,
+})
+
+export const sendMessageCreator = () => ({
+  type: SEND_MESSAGE,
+})
+
+export const updateMessageTextCreator = (newText) => ({
+  type: UPDATE_MESSAGE_TEXT,
+  text: newText,
 })
