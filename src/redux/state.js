@@ -1,7 +1,6 @@
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-const SEND_MESSAGE = 'SEND-MESSAGE';
-const UPDATE_MESSAGE_TEXT = 'UPDATE-MESSAGE-TEXT';
+import profileReducer from "./profileReducer";
+import dialogsReducer from "./dialogsReducer";
+import navbarReducer from "./navbarReducer";
 
 export let store = {
   _state: {
@@ -30,72 +29,27 @@ export let store = {
         { id: 6, name: "Gorge" }
       ],
     },
+    navbar: {},
   },
 
   _subscriber() {
     // render
-    console.log('observer');
+    console.log('observer: render');
+  },  
+
+  subscribe(observer) {
+    this._subscriber = observer;
   },
 
   getState() {
     return this._state;
   },
 
-  subscribe(observer) {
-    this._subscriber = observer;
-  },
-
   // all actions
   dispatch(action) {
-    switch (action.type) {
-      case ADD_POST:
-        let newPost = {
-          id: 666,
-          post: this._state.profilePage.newPostText,
-          likesCount: 2,
-        };
-        this._state.profilePage.postData.unshift(newPost);
-        this._state.profilePage.newPostText = '';
-        this._subscriber(this._state);
-        break;
-
-      case UPDATE_NEW_POST_TEXT:
-        this._state.profilePage.newPostText = action.text;
-        this._subscriber(this._state);
-        break;
-
-      case SEND_MESSAGE:
-        let newMessage = { id: 5, text: this._state.dialogsPage.newMessageText };
-        this._state.dialogsPage.messagesData.push(newMessage);
-        this._state.dialogsPage.newMessageText = '';
-        this._subscriber(this._state);
-        break;
-
-      case UPDATE_MESSAGE_TEXT:
-        this._state.dialogsPage.newMessageText = action.text;
-        this._subscriber(this._state);
-        break;
-
-      default:
-        console.log('dispatch error: command not found');
-    };
+    this._state.profilePage = profileReducer(this._state.profilePage, action);
+    this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+    this._state.navbar = navbarReducer(this._state.navbar, action);
+    this._subscriber(this._state);
   }
 }
-
-export const addPostCreator = () => ({
-  type: ADD_POST,
-})
-
-export const textChangeCreator = (text) => ({
-  type: UPDATE_NEW_POST_TEXT,
-  text: text,
-})
-
-export const sendMessageCreator = () => ({
-  type: SEND_MESSAGE,
-})
-
-export const updateMessageTextCreator = (newText) => ({
-  type: UPDATE_MESSAGE_TEXT,
-  text: newText,
-})
