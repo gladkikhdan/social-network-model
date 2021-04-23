@@ -1,3 +1,5 @@
+import { cloneDeep } from "lodash";
+
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 
@@ -11,23 +13,24 @@ let initialState = {
 };
 
 const profileReducer = (state = initialState, action) => {
+    let stateCopy = cloneDeep(state);
     switch (action.type) {
         case ADD_POST:
             let newPost = {
                 id: 666,
-                post: state.newPostText,
+                post: stateCopy.newPostText,
                 likesCount: 2,
             };
-            state.postData.unshift(newPost);
-            state.newPostText = '';
-            return state;
+            stateCopy.postData.unshift(newPost);
+            stateCopy.newPostText = '';
+            return stateCopy;
 
         case UPDATE_NEW_POST_TEXT:
-            state.newPostText = action.text;            
-            return state;
+            stateCopy.newPostText = action.text;            
+            return stateCopy;
 
         default:
-            return state;
+            return stateCopy;
     };
 }
 
