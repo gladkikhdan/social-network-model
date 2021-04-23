@@ -3,6 +3,8 @@ import profileReducer from './profileReducer';
 import dialogsReducer from './dialogsReducer';
 import navbarReducer from './navbarReducer';
 
+
+// state
 let reducers = combineReducers({
     profilePage: profileReducer,
     dialogsPage: dialogsReducer,

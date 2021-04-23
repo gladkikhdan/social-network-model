@@ -10,8 +10,6 @@ import Settings from './components/Settings/Settings';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 
 const App = (props) => {
-  let dialogsState = props.state.dialogsPage;
-
   return (
     <BrowserRouter>
       <div className='app-wrapper'>
@@ -19,8 +17,8 @@ const App = (props) => {
         <div className="content-wrapper">
           <Navbar />
           <div className="main-content">
-            <Route path='/profile' render={ () => <Profile store={props.store} /> } />
-            <Route path='/dialogs' render={ () => <DialogsContainer store={props.store} /> } />
+            <Route path='/profile' render={ () => <Profile /> } />
+            <Route path='/dialogs' render={ () => <DialogsContainer /> } />
 
             <Route path='/news' render={ () => <News /> } />
             <Route path='/music' render={ () => <Music /> } />

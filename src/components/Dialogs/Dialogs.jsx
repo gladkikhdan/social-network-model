@@ -4,8 +4,8 @@ import Message from './Message/Message';
 import css from './Dialogs.module.css';
 
 const Dialogs = (props) => {
-    let dialogsItems = props.dialogsItems.map(dialog => <DialogItem name={dialog.name} id={dialog.id} />);
-    let messages = props.messages.map(msg => <Message msg={msg.text} />);
+    let dialogsItems = props.dialogsPage.dialogsData.map(dialog => <DialogItem name={dialog.name} id={dialog.id} />);
+    let messages = props.dialogsPage.messagesData.map(msg => <Message msg={msg.text} />);
 
     let msgTextElement = React.createRef();
 
@@ -27,7 +27,7 @@ const Dialogs = (props) => {
                 {messages}
                 <textarea ref={msgTextElement}
                     onChange={onMessageTextChange}
-                    value={props.newMessageText}
+                    value={props.dialogsPage.newMessageText}
                     cols="30" rows="4"
                     placeholder="Enter a message"></textarea>
                 <div>
