@@ -4,8 +4,8 @@ import Message from './Message/Message';
 import css from './Dialogs.module.css';
 
 const Dialogs = (props) => {
-    let dialogsItems = props.dialogsPage.dialogsData.map(dialog => <DialogItem name={dialog.name} id={dialog.id} />);
-    let messages = props.dialogsPage.messagesData.map(msg => <Message msg={msg.text} />);
+    let dialogsItems = props.dialogsPage.dialogsData.map(dialog => <DialogItem name={dialog.name} key={dialog.id} id={dialog.id} />);
+    let messages = props.dialogsPage.messagesData.map(msg => <Message msg={msg.text} key={msg.id}  />);
 
     let msgTextElement = React.createRef();
 

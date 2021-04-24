@@ -13,24 +13,27 @@ let initialState = {
 };
 
 const profileReducer = (state = initialState, action) => {
-    let stateCopy = cloneDeep(state);
     switch (action.type) {
         case ADD_POST:
             let newPost = {
                 id: 666,
-                post: stateCopy.newPostText,
+                post: state.newPostText,
                 likesCount: 2,
             };
-            stateCopy.postData.unshift(newPost);
-            stateCopy.newPostText = '';
-            return stateCopy;
+            return {
+                ...state,
+                postData: [newPost, ...state.postData],
+                newPostText: '',
+            };
 
         case UPDATE_NEW_POST_TEXT:
-            stateCopy.newPostText = action.text;            
-            return stateCopy;
+            return {
+                ...state,
+                newPostText: action.text,
+            };
 
         default:
-            return stateCopy;
+            return state;
     };
 }
 
