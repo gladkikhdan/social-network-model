@@ -4,12 +4,20 @@
 }
 
 .user {
+    min-height: 60px;
+    padding: 5px 0;
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
 .follow {
+    margin: 0 5px;
+    min-width: 100px;    
+}
 
+.follow button {
+    width: 100%;
 }
 
 .avatar {
