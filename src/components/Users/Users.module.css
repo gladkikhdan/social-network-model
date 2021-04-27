@@ -33,3 +33,21 @@
 .description {
 
 }
+
+.pages {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.pages span{
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.pages span:last-child {
+    margin-right: 0;
+}
+
+.currentPage {
+    font-weight: bold;
+}
